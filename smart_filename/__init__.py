@@ -29,4 +29,4 @@ def _read(filename):
         return f.read()
     
 def read(filename):
-    return _read(_preprocess(_relpath(filename)))
+    return _read(_relpath(_preprocess(filename)))
