@@ -17,3 +17,14 @@ def validate_smart_filename(smart_filename):
                 raise IOError("No such directory: '%s'" % directory)
         else:
             directory = os.path.join(directory, path_element)
+
+def read(smart_filename):
+    file_path_relative_to_project_root = get_filename(smart_filename)
+    smart_filename_directory = path.dirname(__file__)
+    project_root = path.join(analytricks_common, "..")
+    file_path_relative_to_working_directory = path.join(
+        project_root,
+        file_path_relative_to_project_root,
+    )
+    with open(file_path_relative_to_working_directory) as f:
+        return f.read()
